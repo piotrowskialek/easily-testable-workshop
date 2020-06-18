@@ -38,8 +38,8 @@ class OrderEndpoint {
     }
 
     @GetMapping("/{id}")
-    public Order getOrder(@PathVariable UUID id) {
-        return orderProvider.getOrderById(id);
+    public Order getOrder(@PathVariable String id) {
+        return orderProvider.getOrderById(UUID.fromString(id));
     }
 
     @GetMapping

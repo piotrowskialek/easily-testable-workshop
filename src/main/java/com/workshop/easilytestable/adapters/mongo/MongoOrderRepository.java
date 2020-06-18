@@ -15,7 +15,7 @@ import java.util.UUID;
 @Repository
 public class MongoOrderRepository implements OrderRepository {
 
-    MongoOrderClient mongoOrderClient;
+    private final MongoOrderClient mongoOrderClient;
 
     @Override
     public Optional<Order> findById(UUID id) {
@@ -35,7 +35,6 @@ public class MongoOrderRepository implements OrderRepository {
     }
 }
 
-@Repository
 interface MongoOrderClient extends MongoRepository<MongoOrder, UUID> {
     List<MongoOrder> findAllBySubmissionDateBetween(long from, long to);
 }

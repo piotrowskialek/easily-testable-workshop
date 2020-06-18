@@ -4,14 +4,14 @@ import io.vavr.collection.List;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.time.Instant;
 import java.util.UUID;
 
 @RequiredArgsConstructor
-@Service
+@Component
 public class OrderProvider {
 
     private final OrderRepository orderRepository;

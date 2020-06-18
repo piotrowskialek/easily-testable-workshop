@@ -1,1 +1,8 @@
-nbp.service.url: api.nbp.pl/api
+nbp:
+  service:
+    url: api.nbp.pl/api
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/local

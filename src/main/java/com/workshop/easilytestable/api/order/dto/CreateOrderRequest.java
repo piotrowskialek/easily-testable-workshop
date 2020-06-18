@@ -1,5 +1,6 @@
 package com.workshop.easilytestable.api.order.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.workshop.easilytestable.domain.order.Order;
 import com.workshop.easilytestable.domain.order.OrderStatus;
 import io.vavr.control.Option;
@@ -8,17 +9,16 @@ import lombok.Value;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.UUID;
-
-import static io.vavr.API.None;
 
 @Value
 public class CreateOrderRequest {
 
     @NonNull
+    @JsonFormat(shape= JsonFormat.Shape.STRING)
     BigDecimal amount;
 
     @NonNull
+    @JsonFormat(shape= JsonFormat.Shape.STRING)
     BigDecimal taxRate;
 
     @NonNull
@@ -26,20 +26,4 @@ public class CreateOrderRequest {
 
     @NonNull
     Option<String> comment;
-
-    @NonNull
-    String status;
-
-
-    public Order toOrder(UUID id, BigDecimal value) {
-        return new Order(
-                id,
-                amount,
-                value,
-                taxRate,
-                submissionDate,
-                comment,
-                OrderStatus.valueOf(status)
-                );
-    }
 }
