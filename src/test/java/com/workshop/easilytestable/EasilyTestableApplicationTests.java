@@ -9,5 +9,4 @@ class EasilyTestableApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
