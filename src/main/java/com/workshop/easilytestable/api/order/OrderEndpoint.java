@@ -1,13 +1,12 @@
 package com.workshop.easilytestable.api.order;
 
 import com.workshop.easilytestable.api.order.dto.CreateOrderRequest;
+import com.workshop.easilytestable.api.order.dto.CreateOrderResponse;
 import com.workshop.easilytestable.domain.order.Order;
 import com.workshop.easilytestable.domain.order.OrderFactory;
 import com.workshop.easilytestable.domain.order.OrderProvider;
 import io.vavr.collection.List;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,14 +42,9 @@ class OrderEndpoint {
     }
 
     @GetMapping
-    public List<Order> getOrdersByDateRange(@RequestParam Instant from,
-                                            @RequestParam Instant to) {
-        return orderProvider.getOrdersByDateRange(from, to);
+    public List<Order> getOrdersByDateRange(@RequestParam long from,
+                                            @RequestParam long to) {
+        return orderProvider.getOrdersByDateRange(Instant.ofEpochMilli(from), Instant.ofEpochMilli(to));
     }
 }
 
-@Value
-class CreateOrderResponse {
-    @NonNull
-    UUID id;
-}
