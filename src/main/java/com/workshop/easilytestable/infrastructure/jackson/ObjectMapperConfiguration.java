@@ -1,4 +1,4 @@
-package com.workshop.easilytestable.infrastructure;
+package com.workshop.easilytestable.infrastructure.jackson;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
