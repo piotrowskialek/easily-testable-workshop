@@ -6,6 +6,7 @@ import io.vavr.control.Option;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
@@ -17,11 +18,12 @@ import java.util.UUID;
 @AllArgsConstructor
 class MongoOrder {
 
+    @Id
     @NonNull
     private UUID id;
 
     @NonNull
-    BigDecimal amount;
+    private BigDecimal amount;
 
     @NonNull
     private BigDecimal value;
