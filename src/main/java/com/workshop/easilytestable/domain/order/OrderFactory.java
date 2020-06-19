@@ -25,7 +25,7 @@ public class OrderFactory {
         return savedOrderId;
     }
 
-    private Order toOrder(CreateOrderRequest orderRequest, UUID id, BigDecimal price) {
+    Order toOrder(CreateOrderRequest orderRequest, UUID id, BigDecimal price) {
         return new Order(
                 id,
                 orderRequest.getAmount(),

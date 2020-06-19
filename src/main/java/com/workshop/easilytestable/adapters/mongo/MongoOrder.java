@@ -6,6 +6,8 @@ import io.vavr.control.Option;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
+import lombok.Value;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
@@ -13,29 +15,29 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Document(collection = "orders")
-@Data
-@AllArgsConstructor
+@Value
 class MongoOrder {
 
+    @Id
     @NonNull
-    private UUID id;
+    UUID id;
 
     @NonNull
     BigDecimal amount;
 
     @NonNull
-    private BigDecimal value;
+    BigDecimal value;
 
     @NonNull
-    private BigDecimal taxRate;
+    BigDecimal taxRate;
 
-    private long submissionDate;
-
-    @NonNull
-    private Option<String> comment;
+    long submissionDate;
 
     @NonNull
-    private String status;
+    Option<String> comment;
+
+    @NonNull
+    String status;
 
     Order toOrder() {
         return new Order(

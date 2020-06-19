@@ -15,7 +15,7 @@ class NbpMockConfigurer {
     void mockNbpResponse(int status, String body, String format) {
         stubFor(
                 WireMock
-                        .get(urlEqualTo("/cenyzlota?format=$format"))
+                        .get(urlEqualTo("/api/cenyzlota?format=$format"))
                         .willReturn(aResponse()
                                 .withStatus(status)
                                 .withBody(body)
