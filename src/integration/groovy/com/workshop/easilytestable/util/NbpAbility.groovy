@@ -8,14 +8,13 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo
 
-@Component
-class NbpMockConfigurer {
+trait NbpAbility {
 
     @SneakyThrows
-    void mockNbpResponse(int status, String body, String format) {
+    void mockValidGoldPrice(int status, String body) {
         stubFor(
                 WireMock
-                        .get(urlEqualTo("/api/cenyzlota?format=$format"))
+                        .get(urlEqualTo("/api/cenyzlota?format=json"))
                         .willReturn(aResponse()
                                 .withStatus(status)
                                 .withBody(body)

@@ -5,9 +5,7 @@ import com.workshop.easilytestable.domain.order.OrderCreatedEventSender;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Service;
 
-@Service
 @RequiredArgsConstructor
 @Log4j2
 public class KafkaOrderEventSender implements OrderCreatedEventSender {
@@ -17,7 +15,7 @@ public class KafkaOrderEventSender implements OrderCreatedEventSender {
     @Override
     public void send(OrderCreatedEvent event) {
         kafkaTemplate.sendDefault(event).addCallback(
-                result -> log.info(String.format("OrderCreatedEvent with id: %s sent", event.getOrderId().toString())),
+                result -> log.info(String.format("OrderCreatedEvent with id: %s sent", event.getOrderId())),
                 log::error
         );
     }

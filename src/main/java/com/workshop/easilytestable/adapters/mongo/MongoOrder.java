@@ -3,8 +3,6 @@ package com.workshop.easilytestable.adapters.mongo;
 import com.workshop.easilytestable.domain.order.Order;
 import com.workshop.easilytestable.domain.order.OrderStatus;
 import io.vavr.control.Option;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NonNull;
 import lombok.Value;
 import org.springframework.data.annotation.Id;

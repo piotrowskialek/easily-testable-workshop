@@ -9,9 +9,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication
 @EnableFeignClients
 public class EasilyTestableApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(EasilyTestableApplication.class, args);
 	}
-
 }

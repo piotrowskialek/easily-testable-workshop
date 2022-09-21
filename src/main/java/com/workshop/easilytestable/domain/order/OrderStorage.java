@@ -6,7 +6,7 @@ import java.time.Instant;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface OrderRepository {
+public interface OrderStorage {
     Optional<Order> findById(UUID id);
     List<Order> findByDateRange(Instant from, Instant to);
     UUID insert(Order order);

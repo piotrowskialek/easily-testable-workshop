@@ -1,6 +1,7 @@
 package com.workshop.easilytestable.api.order.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.workshop.easilytestable.domain.order.CreateOrderCommand;
 import io.vavr.control.Option;
 import lombok.NonNull;
 import lombok.Value;
@@ -24,4 +25,13 @@ public class CreateOrderRequest {
 
     @NonNull
     Option<String> comment;
+
+    public CreateOrderCommand toDomain() {
+        return new CreateOrderCommand(
+            amount,
+            taxRate,
+            submissionDate,
+            comment
+        );
+    }
 }

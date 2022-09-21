@@ -8,5 +8,5 @@ import java.util.UUID;
 @Value
 public class CreateOrderResponse {
     @NonNull
-    UUID id;
+    UUID orderId;
 }
